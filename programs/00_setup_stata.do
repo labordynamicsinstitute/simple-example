@@ -18,7 +18,7 @@ program main
 			capture which `pkg'
 			if _rc == 111 {			
 				dis "Installing `pkg'"
-                quietly ssc install `pkg', replace
+                ssc install `pkg', replace
 			}
         }
     }
@@ -26,8 +26,8 @@ program main
     * Install packages using net
     capture which latab
 	if _rc == 111 {
-        quietly cap ado uninstall latab
-        quietly net install  latab, from(http://fmwww.bc.edu/RePEc/bocode/l)
+        cap ado uninstall latab
+        net install  latab, from(http://fmwww.bc.edu/RePEc/bocode/l)
 	}
 end
 

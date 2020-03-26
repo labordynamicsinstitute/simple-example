@@ -2,7 +2,6 @@
 /* Author: Lars Vilhuber */
 
 clear
-include "config.do"
 use  "$dtam", clear  /* load merged data */
 
   /* table with appropriate weights */
