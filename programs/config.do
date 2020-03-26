@@ -18,12 +18,19 @@ log using "`logprefix'_`cdate'.log", replace text
 global precision 0.01
 
 /* paths */
-global basepath "/path/to/project"      // change this for your specific system
-global inputdata "$basepath/inputdata"  // this is where you would read data acquired elsewhere
-global outputdata "$basepath/outputdata" // this is where you would write the data you create in this project
+local pwd : pwd
+global basepath "`pwd'/.."      // change this for your specific system
+global icpsrpath "$basepath/data/ICPSR_13568/DS0002"  /* local relative path */
+global inputdata "$basepath/data/inputdata"  // this is where you would read data acquired elsewhere
+global outputdata "$basepath/data/outputdata" // this is where you would write the data you create in this project
 global results "$basepath/tables"       // All tables for inclusion in your paper go here
 global programs "$basepath/programs"    // All programs (which you might "include") are to be found here
 global adobase  "$basepath/programs/ado" // Ado packages used by the project are to be found here
+
+cap mkdir $inputdata
+cap mkdir $outputdata
+cap mkdir $results
+cap mkdir $adobase
 
 /* install any packages locally */
 capture mkdir "$adobase"
@@ -49,3 +56,4 @@ di "OS:            `c(os)' `c(osdtl)'"
 di "Machine type:  `c(machine_type)'"
 di "=========================="
 
+global dtam  "$outputdata/pumsak.dta"  /* Stata PUMS merged data */

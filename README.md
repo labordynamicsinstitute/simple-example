@@ -1,24 +1,14 @@
-# Blank Project Template
+# README
 
-To clone this directory for a new "project",
+## Data
 
-    git clone https://github.com/labordynamicsinstitute/paper-template.git
-    mv paper-template paper-meaningful-name  
-    cd paper-meaningful-name
-    git remote remove origin
+Data is public-use, but requires login at ICPSR. 
 
-Now create a new repository on the git of your choice, e.g., Github. You will then run
+Data can be downloaded from https://doi.org/10.3886/ICPSR13568.v1
 
-    git remote add origin git@github.com:labordynamicsinstitute/paper-meaningful-name.git
-    git push -u origin master
-  
-Alternatively, you can use the [Use as template](https://github.com/labordynamicsinstitute/paper-template/generate) functionality on Github.com.
+> United States. Bureau of the Census. Census of Population and Housing, 2000 [United States]:  Public Use Microdata Sample:  5-Percent Sample    . Ann Arbor, MI: [distributor], 2006-01-12. https://doi.org/10.3886/ICPSR13568.v1
 
-You should replace this README with a README template adequate for describing the resulting replication archive, such as
-- [AEA Template README](https://github.com/AEADataEditor/aea-de-guidance/blob/master/template-README.md)
+## Preparing Data
 
-## Other useful templates
-
-- [Gentzkow-Shapiro Lab template](https://github.com/gslab-econ/template): has more bells and whistles.
-- [Project TIER](https://www.projecttier.org/): a looser structure
-
+- Download data from ICPSR, and save ZIP file in folder `data/'
+- 
