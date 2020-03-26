@@ -7,7 +7,6 @@
 /* Download data files to ICPSR_13568 */
 /* Author: Lars Vilhuber */
 
-include "config.do"
 
   /* Define local macros, filenames and locations */
   local datpums "$icpsrpath/13568-0002-Data.txt"   /* PUMS Data */

@@ -12,7 +12,7 @@
 local c_date = c(current_date)
 local cdate = subinstr("`c_date'", " ", "_", .)
 local logprefix "logfile" // could be "myprog" or something else or could come from the main program 
-log using "`logprefix'_`cdate'.log", replace text
+cap log using "`logprefix'_`cdate'.log", replace text
 
 /* define global parameters and paths */
 global precision 0.01
@@ -26,11 +26,6 @@ global outputdata "$basepath/data/outputdata" // this is where you would write t
 global results "$basepath/tables"       // All tables for inclusion in your paper go here
 global programs "$basepath/programs"    // All programs (which you might "include") are to be found here
 global adobase  "$basepath/programs/ado" // Ado packages used by the project are to be found here
-
-cap mkdir $inputdata
-cap mkdir $outputdata
-cap mkdir $results
-cap mkdir $adobase
 
 /* install any packages locally */
 capture mkdir "$adobase"
@@ -57,3 +52,5 @@ di "Machine type:  `c(machine_type)'"
 di "=========================="
 
 global dtam  "$outputdata/pumsak.dta"  /* Stata PUMS merged data */
+
+set more 1
