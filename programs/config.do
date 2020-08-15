@@ -8,19 +8,22 @@
    in the author's main Stata program
    */
 
+local pwd : pwd
+global basepath "`pwd'/.."      // change this for your specific system
+global logdir "${basepath}/logs"
+cap mkdir $logdir
+
 /* Create a log file */
 local c_date = c(current_date)
 local cdate = subinstr("`c_date'", " ", "_", .)
 local logprefix "logfile" // could be "myprog" or something else or could come from the main program 
-cap log using "`logprefix'_`cdate'.log", replace text
+cap log using "$logdir/`logprefix'_`cdate'.log", replace text
 
 /* define global parameters and paths */
 global precision 0.01
 
 /* paths */
-local pwd : pwd
-global basepath "`pwd'/.."      // change this for your specific system
-global icpsrpath "$basepath/data/ICPSR_13568/DS0002"  /* local relative path */
+global icpsrpath "$basepath/data/ICPSR_13568-V1/ICPSR_13568/DS0002"  /* local relative path */
 global inputdata "$basepath/data/inputdata"  // this is where you would read data acquired elsewhere
 global outputdata "$basepath/data/outputdata" // this is where you would write the data you create in this project
 global results "$basepath/tables"       // All tables for inclusion in your paper go here
@@ -33,7 +36,13 @@ sysdir set PERSONAL "$adobase/ado/personal"
 sysdir set PLUS     "$adobase/ado/plus"
 sysdir set SITE     "$adobase/ado/site"
 
-
+/* Alternatively, the followin would probably achieve a similar goal */
+// adopath - PERSONAL
+// adopath - PLUS
+// adopath - SITE
+// adopath - OLDPLACE
+// net set ado "$adobase"
+adopath
 
 /* keep this line in the config file */
 /* It will provide some info about how and when the program was run */
