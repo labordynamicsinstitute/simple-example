@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[dvipsnames,12pt,titlepage]{article}
+%TCIDATA{OutputFilter=Latex.dll}
+
+\newcommand{\mytitle}{Alaska analysis}
+\newcommand{\myshorttitle}{Alaska}
+\author{Lars Vilhuber}
+\title{\mytitle}
+
+\date{\today}
+%--------------------
+%try to eliminate the stupid * for \thanks in titlepage
+\renewcommand\footnotemark{}
+%--------------------
+%----------------------
+%To insert un-numbered footnotes (as on the title page)
+%ref: http://en.wikibooks.org/wiki/LaTeX/Formatting#cite_note-csli_footnotes-0
+\makeatletter
+\def\blfootnote{\xdef\@thefnmark{}\@footnotetext}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{%
+	plainpages,%
+	colorlinks,% removes the boxes around links
+	urlcolor=black,%
+	filecolor=black,%
+	citecolor=Blue,%   requires xcolor with option dvipsnames
+}
+\usepackage{natbib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+	 \maketitle
+	 \begin{abstract}
+	 	We discuss identification with tribes in  Alaska.
+	 \end{abstract}
+	 \thispagestyle{empty}
+	 
+	 How many people identify with only one of the four tribes in Alaska?  In order to address this question, we use data from the Census of Population and Housing \citep{10.3886/icpsr13568.v1}. The four tribes coded within the Census of Population for Alaskan Natives are Alaskan Athabascan, Aleut, Eskimo, and Tlingit-Haida. We identify all respondents who specified only those tribal identities, without combining them with additional identifiers.
+	 
+	 Table~\ref{freq_specific_ak} shows the results.
+	 
+	 \input{../tables/table1.tex}
+	 \bibliographystyle{aea-mod}
+	 \bibliography{icpsr.bib}
+
+\end{document}
+
